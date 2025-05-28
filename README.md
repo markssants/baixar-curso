@@ -33,7 +33,10 @@ Se o canal for **privado** ou estiver acessível via link de convite (`https://t
 ### Faça isso **apenas uma vez**:
 
 1. **Entre no canal** manualmente pelo Telegram
-2. Rode o script:
+2. Edite o executar_ID.sh e mude o caminho do cd /
+3. Rode o executar_ID.sh:
+
+Ou 
 
 ```bash
 python descobrir_id.py

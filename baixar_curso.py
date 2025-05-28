@@ -7,7 +7,7 @@ api_id = api_id
 api_hash = "api_hash"
 canal = "link ou codigo -0000000"
 
-pasta_videos = "nomecurso"
+pasta_videos = "videos"
 os.makedirs(pasta_videos, exist_ok=True)
 
 # Função de progresso
@@ -25,36 +25,33 @@ with app:
     contador = 1
 
     print("🔎 Contando vídeos...")
-    total_videos = sum(1 for msg in app.get_chat_history(canal) if msg.video)
+    mensagens_com_video = [msg for msg in app.get_chat_history(canal) if msg.video]
+    total_videos = len(mensagens_com_video)
     print(f"📊 Total de vídeos encontrados: {total_videos}\n")
 
-    while True:
-        mensagens = app.get_chat_history(canal, offset_id=offset_id, limit=100)
-        if not mensagens:
-            break
+    # Pergunta o intervalo desejado
+    inicio = int(input(f"📥 A partir de qual vídeo deseja baixar? (1 a {total_videos}): "))
+    fim = int(input(f"📥 Até qual vídeo deseja baixar? ({inicio} a {total_videos}): "))
 
-        for msg in mensagens:
-            offset_id = msg.id
+    mensagens_filtradas = mensagens_com_video[inicio-1:fim]
 
-            if msg.video:
-                def limpar_nome(texto):
-                    # Remove caracteres proibidos para nome de arquivo
-                    texto_limpo = re.sub(r'[\\\\/:*?"<>|]', '', texto)
-                    return texto_limpo.strip()[:100]  # Limita a 100 caracteres
+    for msg in mensagens_filtradas:
+        def limpar_nome(texto):
+            texto_limpo = re.sub(r'[\\\\/:*?"<>|]', '', texto)
+            return texto_limpo.strip()[:100]
 
-                # Usa a legenda como nome, se houver — senão usa um nome padrão
-                legenda = msg.caption or f"video_{msg.id}"
-                nome_arquivo = limpar_nome(legenda) + ".mp4"
-                caminho_completo = os.path.join(pasta_videos, nome_arquivo)
+        legenda = msg.caption or f"video_{msg.id}"
+        nome_arquivo = limpar_nome(legenda) + ".mp4"
+        caminho_completo = os.path.join(pasta_videos, nome_arquivo)
 
-                if not os.path.exists(caminho_completo):
-                    print(f"\n📥 Baixando {contador} de {total_videos}: {nome_arquivo}")
-                    app.download_media(msg.video, file_name=caminho_completo, progress=mostrar_progresso)
-                    print()  # quebra de linha após progresso
-                    total_baixados += 1
-                else:
-                    print(f"✅ Já existe: {nome_arquivo}")
-
-                contador += 1
+        print(f"\n📥 Baixando {contador + inicio - 1} de {total_videos}: {nome_arquivo}")
+        if not os.path.exists(caminho_completo):
+            app.download_media(msg.video, file_name=caminho_completo, progress=mostrar_progresso)
+            print()
+            total_baixados += 1
+        else:
+            print(f"✅ Já existe: {nome_arquivo}")
+        contador += 1
 
     print(f"\n🎉 Download concluído! Total de vídeos baixados: {total_baixados}")
+

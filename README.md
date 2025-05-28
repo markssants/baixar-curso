@@ -68,6 +68,7 @@ python baixar_curso.py
 baixar_curso/
 ├── baixar_curso.py
 ├── descobrir_id.py
+├── executar_ID.sh
 ├── executar.sh
 └── minha_sessao.session 
 └── minha_sessao.session-journal

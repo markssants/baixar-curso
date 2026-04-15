@@ -3,9 +3,9 @@ import os
 import time
 import re
 
-api_id = api_id
-api_hash = "api_hash"
-canal = "link ou codigo -0000000"
+api_id = api_id  # Seu api_id
+api_hash = "api_hash"  # Seu api_hash
+canal = "link ou codigo -0000000"  # Link ou codigo do canal que você entrou
 
 pasta_videos = "videos"
 os.makedirs(pasta_videos, exist_ok=True)

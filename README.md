@@ -24,7 +24,7 @@ pip install pyrogram tgcrypto
 1. Vá em [https://my.telegram.org](https://my.telegram.org)
 2. Faça login e crie um aplicativo
 3. Pegue o `api_id` e o `api_hash`
-4. Preencha essas variáveis nos scripts `descobrir_id.py` e `baixar_videos.py`
+4. Preencha essas variáveis nos scripts `descobrir_id.py` e `baixar_curso.py`
 
 ## 🔍 Como descobrir o chat ID do canal
 

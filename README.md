@@ -40,7 +40,7 @@ Ou
 python descobrir_id.py
 ```
 
-Ele vai imprimir algo como:
+Depois de colocar seu numero e logar, Ele vai imprimir algo como:
 
 ```
 🆔 chat_id do canal: -1001234567890

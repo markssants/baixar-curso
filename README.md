@@ -12,8 +12,6 @@ Um script em Python para baixar **todos os vídeos** de um canal do Telegram, in
 ## 🧪 Instalação
 
 ```bash
-mkdir baixar_curso
-cd baixar_curso
 python3 -m venv venv
 source venv/bin/activate
 pip install pyrogram tgcrypto

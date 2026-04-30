@@ -3,8 +3,7 @@
 Um script em Python para baixar **todos os vídeos** de um canal do Telegram, incluindo canais privados (usando o chat ID interno).
 
 ## ⚙️ Tutorial em Vídeo de como Baixar, Configurar e Usar o Script
-[![Como baixar TODOS os vídeos de um canal do Telegram de uma vez automaticamente](https://img.youtube.com/vi/WWeJFBkAV6g/0.jpg)](https://www.youtube.com/watch?v=WWeJFBkAV6g)
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WWeJFBkAV6g?si=0iz7QtOiq6YrnOGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ## ⚙️ Pré-requisitos
 
 - Python 3.10+ instalado no sistema
